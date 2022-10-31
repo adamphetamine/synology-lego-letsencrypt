@@ -8,7 +8,7 @@ echo current version of lego is $lego_tag
 echo 'we are downloading to ' $PWD
 wget https://github.com/go-acme/lego/releases/download/$lego_tag/lego_$lego_tag_linux_$(dpkg --print-architecture).tar.gz
 
-# wget  https://github.com/gravitl/netmaker/releases/download/$netclient_tag/netclient-darwin
+# original command = wget  https://github.com/gravitl/netmaker/releases/download/$netclient_tag/netclient-darwin
 
 # unpack the binaary
 tar xvzf lego_$lego_tag_linux_$(dpkg --print-architecture).tar.gz 
@@ -21,6 +21,12 @@ sudo mv ./lego /usr/local/sbin
 sudo chown root:root /usr/local/sbin/lego
 # Make sure it works!
 ./lego --version
+
+# get the custom.env to use for variables
+wget https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/custom.env
+
+# get the renewal script so we can renew our certificates
+https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/le-renew.sh
 
 # create a directory to keep the Letencrypt bits
 sudo su -
@@ -37,8 +43,10 @@ echo We are finished!
 echo -----------------------------------
 
 echo Now go and add your custom variables to the file called 'custom.env'
-echo 
+echo it's in '/usr/local/sbin/lego'
+echo
 echo -----------------------------------
 echo Your setup WILL FAIL unless you complete this
 echo -----------------------------------
-
+echo
+echo "all done. exiting"
