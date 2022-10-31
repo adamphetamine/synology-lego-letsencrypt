@@ -6,7 +6,6 @@ Projects used
 
 https://go-acme.github.io/lego/dns/cloudflare/
 
-https://securityonionsolutions.com
 
 Here's the short version
 
