@@ -2,7 +2,9 @@
 
 # let's figure out the current version of Acme Lego
 lego_tag=$(curl -sL https://api.github.com/repos/go-acme/lego/releases/latest | jq -r ".tag_name")
-echo current version of lego is $lego_tag
+echo -----------------------------------
+echo Current version of Acme Lego is $lego_tag
+echo -----------------------------------
 
 # Download it and print the current directory to the user
 echo 'we are downloading to ' $PWD
@@ -24,17 +26,17 @@ sudo chown root:root /usr/local/sbin/lego
 
 # get the custom.env to use for variables
 wget https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/custom.env
+chmod +x custom.env
 
 # get the renewal script so we can renew our certificates
 https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/le-renew.sh
+chmod +x le-renew.sh
 
 # create a directory to keep the Letencrypt bits
 sudo su -
 mkdir letsencrypt
 chmod 700 letsencrypt
 cd letsencrypt
-
-wget https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/custom.env
 
 # tell the carbon unit at the keyboard to add their variables into the .env file
 
