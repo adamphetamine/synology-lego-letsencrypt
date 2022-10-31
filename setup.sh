@@ -15,7 +15,7 @@ wget https://github.com/go-acme/lego/releases/download/$lego_tag/lego_$lego_tag_
 # unpack the binaary
 tar xvzf lego_$lego_tag_linux_$(dpkg --print-architecture).tar.gz 
 
-# create a new directory structurev to hold the project
+# create a new directory structure to hold the project
 sudo mkdir -p /usr/local/sbin
 
 # Move the binary into position, update permissions and check it launches...
@@ -32,11 +32,11 @@ wget https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/m
 https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/le-renew.sh
 chmod +x le-renew.sh
 
-# create a directory to keep the Letencrypt bits
-sudo su -
-mkdir letsencrypt
-chmod 700 letsencrypt
-cd letsencrypt
+# create a directory to keep the Letencrypt bits- do we even need this?
+# sudo su -
+# mkdir letsencrypt
+# chmod 700 letsencrypt
+# cd letsencrypt
 
 # tell the carbon unit at the keyboard to add their variables into the .env file
 
