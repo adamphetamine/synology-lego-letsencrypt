@@ -7,16 +7,14 @@
 # debug - comment out this when working
 # set -x 
 
-# load settings from file
-CLOUDFLARE_EMAIL_FILE=$(<"/etc/letsencrypt-scripts/email") \
-CLOUDFLARE_API_TOKEN_FILE=$(<"/etc/letsencrypt-scripts/token") \
-DOMAIN_NAME=$(<"/etc/letsencrypt-scripts/domain")
+# our variables are in this file
+source /usr/local/sbin/lego/custom.env
 
 TIMESTAMP=$(date +"%F %T")
 UPDATED=0
 
 # debugging time- uncomment these if you want to check your variables are correct
-# echo $CLOUDFLARE_EMAIL_FILE
+# echo $CLOUDFLARE_EMAIL
 # echo $CLOUDFLARE_API_TOKEN
 # echo $DOMAIN_NAME
 
@@ -30,12 +28,12 @@ LOG_FILE="/var/log/letsencrypt/ssl-renewals.log"
 
 # Let's get the certs
 echo "Renewing SSL Certificates with Let's Encrypt CA"
-# lego binary is in /usr/bin/lego
-cd /usr/bin/
+# lego binary is in /usr/sbin/lego
+cd /usr/sbin/
 
 # set token  variable
-CLOUDFLARE_DNS_API_TOKEN=$CLOUDFLARE_API_TOKEN_FILE \
-lego --email $CLOUDFLARE_EMAIL_FILE \
+CLOUDFLARE_DNS_API_TOKEN=$CLOUDFLARE_API_TOKEN \
+lego --email $CLOUDFLARE_EMAIL \
  --dns cloudflare \
 --domains $DOMAIN_NAME run \ 
 --run-hook "./move-certs.sh"
