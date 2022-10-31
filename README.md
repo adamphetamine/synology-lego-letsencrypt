@@ -1,6 +1,6 @@
 # synology-lego-letsencrypt
 
-automating SSL renewal for Security Onion
+automating SSL renewal for Synology NAS
 
 Projects used
 
