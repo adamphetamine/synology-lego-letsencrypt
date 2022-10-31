@@ -26,7 +26,7 @@ sudo chown root:root /usr/local/sbin/lego
 
 # get the custom.env to use for variables
 wget https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/custom.env
-chmod +x custom.env
+
 
 # get the renewal script so we can renew our certificates
 https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/le-renew.sh
