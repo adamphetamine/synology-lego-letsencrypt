@@ -14,7 +14,9 @@ get a token with the correct permissions from Cloudflare
 Log into your Synology NAS using SSH and execute
 
 wget https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/setup.sh
+
 chmod +x setup.sh
+
 sudo sh ./setup.sh
 
 This will download latest version of Lego, the custom.env file and the le-renew.sh script
