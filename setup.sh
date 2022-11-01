@@ -52,7 +52,7 @@ echo -----------------------------------
 echo We are finished!
 echo -----------------------------------
 
-echo Now go and add your custom variables to the file called 'custom.env'
+echo Now go and add your custom variables to the file called custom.env
 echo it's in '/usr/local/sbin/lego'
 echo
 echo -----------------------------------
@@ -64,4 +64,4 @@ echo run the command once to get your certs
 echo then test the move-certs script
 echo and set up a cron schedule for the le-renew script
 echo
-echo "all done. exiting"
+echo all done. exiting
