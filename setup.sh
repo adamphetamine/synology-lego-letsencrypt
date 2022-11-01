@@ -8,7 +8,8 @@ echo -----------------------------------
 
 # Download it and print the current directory to the user
 echo 'we are downloading Lego to ' $PWD
-wget https://github.com/go-acme/lego/releases/download/$lego_tag/lego_$lego_tag_$(dpkg --print-architecture).tar.gz
+echo and the url is https://github.com/go-acme/lego/releases/download/$lego_tag/lego_$lego_tag_$(dpkg --print-architecture).tar.gz
+wget https://github.com/go-acme/lego/releases/download/'$lego_tag'/lego_'$lego_tag'_'$(dpkg --print-architecture)'.tar.gz
 
 # original command = wget  https://github.com/gravitl/netmaker/releases/download/$netclient_tag/netclient-darwin
 
