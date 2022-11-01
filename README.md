@@ -10,21 +10,25 @@ https://go-acme.github.io/lego/dns/cloudflare/
 Here's the short version
 
 get a token with the correct permissions from Cloudflare
-install Lego
-download the scripts into /etc/letsencrypt-scripts
-add your creds as files in the same folder
-run the Lego enrol command to generate your new certificates first
-add the le-renew script to crontab
-There are 2 scripts in here
 
-le-renew for getting and renewing LetsEncrypt certs for Security Onion. Uses DNS challenge, doesn't require port 80 to be open
-move-certs will assist in moving certs into place and restart the web server if new certs are added
-so-postinstall can be used with MDM or Munki to customise so-launcher from Security Onion
-We make the following assumptions for the LetsEncrypt scripts-
+Log into your Synology NAS using SSH and execute
 
-scripts will be run from /etc/letsencrypt-scripts
-Lego is installed
-you are using Cloudflare for your certs
-you've created and tested a token for DNS
-variables are stored in /etc/letsencrypt-scripts as individual files for each variable
-they must be named exactly as in the script
+wget https://raw.githubusercontent.com/adamphetamine/synology-lego-letsencrypt/main/setup.sh
+chmod +x setup.sh
+sudo sh ./setup.sh
+
+This will download latest version of Lego, the custom.env file and the le-renew.sh script
+
+custom.env you need to modify this file and add your Cloudflare email, token ID etc.
+
+le-renew.sh for getting and renewing LetsEncrypt certs. Uses DNS challenge, doesn't require port 80 to be open
+
+move-certs.sh will assist in moving certs into place and restart the web server if new certs are added- most oif this code is er, 'repurposed' from the Acme.sh project- thank you!
+
+After running setup.sh you need to update your environment variables in custom.env. Then you can issue a command to get your certs in this format
+
+If this is successful, run the move-certs.sh script to finalise the initial setup, then log into the web interface of your Synology NAS, add a new schedule and make it run le-renew.sh around once a month with an email to you if it fails twice. This should give you 30 days to fix any issues.
+
+
+
+
