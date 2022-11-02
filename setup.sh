@@ -6,9 +6,7 @@ echo -----------------------------------
 echo Current version of Acme Lego is $lego_tag
 echo -----------------------------------
 
-# figure out the full name of the download to work around a stupid issue in path
-# download_name=$lego_tag_linux_amd64.tar.gz
-# echo name of file to download is $download_name
+
 # Download it and print the current directory to the user
 echo 'we are downloading Lego to ' $PWD
 echo and the url is "https://github.com/go-acme/lego/releases/download/"$lego_tag/"lego_"$lego_tag"_linux_"$(dpkg --print-architecture).tar.gz
