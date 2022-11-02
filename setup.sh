@@ -6,16 +6,18 @@ echo -----------------------------------
 echo Current version of Acme Lego is $lego_tag
 echo -----------------------------------
 
+# figure out the full name of the download to work around a stupid issue in path
+# download_name=$lego_tag_linux_amd64.tar.gz
+# echo name of file to download is $download_name
 # Download it and print the current directory to the user
 echo 'we are downloading Lego to ' $PWD
-echo and the url is https://github.com/go-acme/lego/releases/download/$lego_tag/lego_$lego_tag_$(dpkg --print-architecture).tar.gz
-wget https://github.com/go-acme/lego/releases/download/'$lego_tag'/lego_'$lego_tag'_'$(dpkg --print-architecture)'.tar.gz
+echo and the url is "https://github.com/go-acme/lego/releases/download/"$lego_tag/"lego_"$lego_tag"_linux_"$(dpkg --print-architecture).tar.gz
 
-# original command = wget  https://github.com/gravitl/netmaker/releases/download/$netclient_tag/netclient-darwin
+wget "https://github.com/go-acme/lego/releases/download/"$lego_tag/"lego_"$lego_tag"_linux_"$(dpkg --print-architecture).tar.gz
 
 # unpack the binary
 echo unpack the binary
-tar xvzf lego_$lego_tag_linux_$(dpkg --print-architecture).tar.gz 
+tar xvzf lego_"$lego_tag"_linux_$(dpkg --print-architecture).tar.gz 
 
 # create a new directory structure to hold the project
 echo create a new directory structure to hold the project
