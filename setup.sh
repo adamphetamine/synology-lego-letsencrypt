@@ -53,9 +53,8 @@ chmod +x le-renew.sh
 echo -----------------------------------
 echo We are finished!
 echo -----------------------------------
-
 echo Now go and add your custom variables to the file called custom.env
-echo it's in '/usr/local/sbin/lego'
+echo Which is located here '/usr/local/sbin/lego'
 echo
 echo -----------------------------------
 echo Your setup WILL FAIL unless you complete this
@@ -63,7 +62,7 @@ echo -----------------------------------
 echo
 echo update the variables
 echo run the command once to get your certs
-echo then test the move-certs script
-echo and set up a cron schedule for the le-renew script
+echo test the move-certs script
+echo and setup a cron schedule to trigger the le-renew script
 echo
-echo all done. exiting
+echo Thanks you, and good night. Exiting
