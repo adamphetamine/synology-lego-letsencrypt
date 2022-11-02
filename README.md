@@ -1,3 +1,11 @@
+While debugging this script, I found another project that 1. Works and 2. is more elegant
+
+So I'll probably shelve this project. Here it is-
+
+https://github.com/JessThrysoee/synology-letsencrypt
+
+
+
 # synology-lego-letsencrypt
 
 automating SSL renewal for Synology NAS
